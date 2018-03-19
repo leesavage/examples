@@ -1,0 +1,6 @@
+build:
+	GOOS=linux GOARCH=amd64 go build
+	docker build -t greeter-client .
+
+run:
+	docker run -p 50052:50052 -e MICRO_SERVER_ADDRESS=:50052 -e MICRO_REGISTRY=mdns greeter-client
